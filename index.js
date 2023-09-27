@@ -53,7 +53,7 @@ case 'add':
   }
   break;
 
-case 'remove':
+/*case 'remove':
   try {
     const removedContact = await removeContact(id);
     if (removedContact) {
@@ -65,7 +65,18 @@ case 'remove':
   } catch (error) {
     console.error('Error:', error.message);
   }
+  break;*/
+
+  case 'remove':
+  const removedContact = await removeContact(id);
+  if (removedContact) {
+    console.log('Removed contact:');
+    console.log(removedContact); 
+  } else {
+    console.log(`Contact with ID ${id} not found or could not be removed.`);
+  }
   break;
+
 
 
     default:
