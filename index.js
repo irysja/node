@@ -29,19 +29,16 @@ async function invokeAction({ action, id, name, email, phone }) {
       }
       break;
 
-case 'get':
-  try {
-    const contact = await getContactById(id);
-    if (contact) {
-      console.log('Contact found:');
-      console.log(contact); 
-    } else {
-      console.log(`Contact with ID ${id} not found.`);
-    }
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
-  break;
+      case 'get':
+        try {
+          const contact = await getContactById(id);
+          console.log('Contact found:');
+          console.log(contact); 
+        } catch (error) {
+          console.error('Error:', error.message);
+        }
+        break;
+      
 
 case 'add':
   try {
@@ -53,30 +50,12 @@ case 'add':
   }
   break;
 
-/*case 'remove':
-  try {
-    const removedContact = await removeContact(id);
-    if (removedContact) {
-      console.log('Removed contact:');
-      console.log(removedContact); 
-    } else {
-      console.log(`Contact with ID ${id} not found.`);
-    }
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
-  break;*/
-
   case 'remove':
-  const removedContact = await removeContact(id);
-  if (removedContact) {
+    const removedContact = await removeContact(id);
     console.log('Removed contact:');
     console.log(removedContact); 
-  } else {
-    console.log(`Contact with ID ${id} not found or could not be removed.`);
-  }
-  break;
-
+    break;
+  
 
 
     default:
